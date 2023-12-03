@@ -32,7 +32,7 @@ if img_file is not None:
         image = Image.open(img_file)
         size = (224, 224)
         # 画像をセンタリングし指定したsizeに切り出す処理
-        image = ImageOps.fit(image, size, Image.ANTIALIAS)
+        image = ImageOps.fit(image, size, method=0, bleed=0.0, centering=(0.5, 0.5))
         st.image(image, caption="対象の画像", width=480)
         st.write("")
         image_array = np.asarray(image)
